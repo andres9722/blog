@@ -1,3 +1,6 @@
+[![Travis](https://img.shields.io/travis/andres9722/blog.svg)](https://travis-ci.org/andres9722/blog/)
+[![Codecov](https://codecov.io/gh/andres9722/blog/branch/master/graph/badge.svg)](https://codecov.io/gh/andres9722/blog)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

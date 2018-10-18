@@ -1,4 +1,4 @@
-export const GET_DATA = 'posts/REQUEST'
+export const GET_DATA_REQUEST = 'posts/REQUEST'
 export const GET_DATA_SUCCESS = 'posts/REQUEST_SUCCESS'
 export const GET_DATA_FAIL = 'posts/REQUEST_FAIL'
 

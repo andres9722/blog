@@ -12,7 +12,7 @@ const Header = ({ handleOnRedirect, handleOnLogout, auth: { loggedIn } }) => (
       <div className='header-container__main'>
         <h1 className='header-container__logo'>BLOG</h1>
         <InputForm placeholder='Search...' theme='input--secondary' />
-        <Link className='header-container__link' to={loggedIn ? '/blog' : '/'}>
+        <Link className='header-container__link' to={loggedIn ? '/posts' : '/'}>
           All posts
         </Link>
       </div>

@@ -1,5 +1,4 @@
 import {
-  GET_DATA,
   GET_DATA_SUCCESS,
   GET_DATA_FAIL,
   REDIRECT_REQUEST,
@@ -8,14 +7,16 @@ import {
   TOKEN_REQUEST,
   TOKEN_SUCCESS,
   TOKEN_FAIL,
-  LOGOUT
+  LOGOUT,
+  GET_DATA_REQUEST
 } from './actions'
+
 import { getFromApi } from '../api/api'
 import { requestAuth, requestToken, requestUser } from '../api/auth'
 
 export const getData = () => {
   return async dispatch => {
-    dispatch({ type: GET_DATA })
+    dispatch({ type: GET_DATA_REQUEST })
 
     try {
       let { data } = await getFromApi('gists/public')

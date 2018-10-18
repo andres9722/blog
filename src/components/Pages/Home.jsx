@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getToken } from '../../state/actionCreators'
+import Posts from '../Templates/Posts/Posts'
 
 class Home extends Component {
   componentDidMount () {
@@ -12,9 +13,10 @@ class Home extends Component {
   }
 
   render () {
+    const { posts } = this.props
     return (
       <div>
-        Hi
+        <Posts posts={posts} />
       </div>
     )
   }
@@ -26,4 +28,6 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(Home)
+const mapStateToProps = ({ auth, posts }) => ({ auth, posts })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

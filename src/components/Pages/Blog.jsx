@@ -1,11 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import Posts from '../Templates/Posts/Posts'
 
-const Blog = () => {
+const Blog = ({ posts }) => {
   return (
     <div>
-      Blog
+      <Posts posts={posts} />
     </div>
   )
 }
 
-export default Blog
+const mapStateToProps = ({ auth }) => ({ auth })
+
+export default connect(mapStateToProps)(Blog)

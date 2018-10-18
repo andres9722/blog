@@ -1,0 +1,43 @@
+@import "../../Shared/variables.scss";
+
+.posts-item {
+  margin: 16px 0;
+  padding: 16px 0;
+
+  &__profile {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  
+  &__author {
+    color: color(primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 8px;
+  }
+
+  &__content {
+    border-radius: 3px;
+    padding: 8px;
+    border: 1px solid color(border-color);
+    cursor: pointer;
+    transition: border-color .2s ease;
+
+    &:hover {
+      border: 1px solid darken(color(border-color), 15);
+    }
+  }
+  
+  &__description {
+    color: color(font-color);
+  }
+
+}

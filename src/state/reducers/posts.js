@@ -1,8 +1,8 @@
-import { GET_DATA, GET_DATA_SUCCESS, GET_DATA_FAIL } from '../actions'
+import { GET_DATA_SUCCESS, GET_DATA_FAIL, GET_DATA_REQUEST } from '../actions'
 
 const posts = (state = {}, action) => {
   switch (action.type) {
-    case GET_DATA:
+    case GET_DATA_REQUEST:
       return { ...state, loading: true }
     case GET_DATA_SUCCESS:
       return { ...state, loading: false, posts: action.data }
