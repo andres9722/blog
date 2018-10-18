@@ -1,0 +1,29 @@
+@import "../../Shared/variables.scss";
+@import "../../Shared/typography.scss";
+
+.button {
+  background-color: color(terciary);
+  color: color(primary);
+  border: none;
+  padding: 6px 12px;
+  font-family: $font-text;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: darken(color(terciary), 5);
+  }
+  
+  &--secondary {
+    color: color(white);
+    background-color: color(green);
+
+    &:hover {
+      background-color: darken(color(green), 5);
+    }
+  }
+}

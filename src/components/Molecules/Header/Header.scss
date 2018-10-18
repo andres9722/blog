@@ -1,0 +1,31 @@
+@import "../../Shared/variables.scss";
+
+.header {
+  width: 100%;
+  background: color(primary);
+  color: color(white);
+  height: 55px;
+  
+  &-container {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &__main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+    }
+
+    &__logo {
+      margin-right: 16px;
+    }
+
+    &__link {
+      color: color(white);
+      margin: 0 16px;
+    }
+  }
+}

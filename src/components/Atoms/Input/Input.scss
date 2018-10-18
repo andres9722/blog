@@ -1,0 +1,16 @@
+@import "../../Shared/variables.scss";
+@import "../../Shared/typography.scss";
+
+.input {
+  font-family: $font-text;
+  border: none;
+  border-radius: 3px;
+  padding: 8px;
+  outline: none;
+  width: 175px;
+  
+  &--secondary {
+    background: color(secondary);
+    color: color(white);
+  }
+}
