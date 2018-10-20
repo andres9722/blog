@@ -8,10 +8,13 @@ import {
   TOKEN_SUCCESS,
   TOKEN_FAIL,
   LOGOUT,
-  GET_DATA_REQUEST
+  GET_DATA_REQUEST,
+  CREATE_POST_REQUEST,
+  CREATE_POST_SUCCESS,
+  CREATE_POST_FAIL
 } from './actions'
 
-import { getFromApi } from '../api/api'
+import API from '../api/api'
 import { requestAuth, requestToken, requestUser } from '../api/auth'
 
 export const getData = () => {
@@ -19,7 +22,7 @@ export const getData = () => {
     dispatch({ type: GET_DATA_REQUEST })
 
     try {
-      let { data } = await getFromApi('gists/public')
+      const { data } = await API.get('gists/public')
 
       return dispatch({
         type: GET_DATA_SUCCESS,
@@ -60,7 +63,9 @@ export const getToken = code => {
 
       let token = await response.data
         .replace('access_token=', '')
-        .replace('&scope=user&token_type=bearer', '')
+        .replace('&scope=gist%2Cuser&token_type=bearer', '')
+
+      console.log(token, 'tokeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeen')
 
       let user = await requestUser(token)
 
@@ -80,3 +85,21 @@ export const getToken = code => {
 }
 
 export const onLogout = () => ({ type: LOGOUT })
+
+export const createPost = (post, token, user) => {
+  console.log(post, token, user.login)
+  return async dispatch => {
+    dispatch({ type: CREATE_POST_REQUEST })
+
+    try {
+      let { data } = await API.post(post, token)
+      console.log(data, 'jeieiekak')
+
+      return dispatch({
+        type: CREATE_POST_SUCCESS
+      })
+    } catch (error) {
+      dispatch({ type: CREATE_POST_FAIL })
+    }
+  }
+}

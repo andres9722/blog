@@ -3,13 +3,18 @@
 
 .input {
   font-family: $font-text;
-  border: none;
   border-radius: 3px;
   padding: 8px;
   outline: none;
+  border: 1px solid color(border-color);
   width: 175px;
+
+  &[type="submit"] {
+    cursor: pointer;
+  }
   
   &--secondary {
+    border: none;
     background: color(secondary);
     color: color(white);
   }

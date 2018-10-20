@@ -15,7 +15,7 @@ class Home extends Component {
   render () {
     const { posts } = this.props
     return (
-      <div>
+      <div className='l-container'>
         <Posts posts={posts} />
       </div>
     )

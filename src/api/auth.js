@@ -5,7 +5,7 @@ const CLIENT_SECRET = '4c689dd1d7bc53aa6482bfb09b2edf6d0436cd29'
 
 export const REDIRECT_URI = 'http://localhost:3000/'
 
-export const ENDPOINT = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`
+export const ENDPOINT = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user,gist&redirect_uri=${REDIRECT_URI}`
 
 const TOKEN = 'https://github.com/login/oauth/access_token'
 

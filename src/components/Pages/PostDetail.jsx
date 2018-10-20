@@ -1,18 +1,43 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Post from '../Organisms/Post/Post'
+import Loader from '../Atoms/Loader/Loader'
+import API from '../../api/api'
 
 class PostDetail extends Component {
+  state = {
+    post: null,
+    loading: null
+  }
+
+  async componentDidMount () {
+    const { match: { params } } = this.props
+
+    this.setState({
+      loading: true
+    })
+
+    try {
+      let { data } = await API.get(`gists/${params.id}`)
+
+      this.setState({
+        post: data,
+        loading: false
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   render () {
-    const { posts: { posts }, match: { params } } = this.props
-    const post = posts.find(item => item.id === params.id)
+    const { post, loading } = this.state
+
     return (
-      <div>
-        <Post large post={post} />
+      <div className='l-container'>
+        {loading && <Loader />}
+        {post && <Post large post={post} />}
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ posts }) => ({ posts })
-export default connect(mapStateToProps)(PostDetail)
+export default PostDetail
