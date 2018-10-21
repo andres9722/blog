@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import InputForm from '../../Atoms/Input/Input'
 import Loader from '../../Atoms/Loader/Loader'
 import SubmitForm from '../../Atoms/Input/SubmitForm'
@@ -41,8 +43,8 @@ class NewPost extends Component {
 
   render () {
     const { entityTitle, updateEntityTitle, entityFields } = info
-    const { post: { loading, message }, update, postToUpdate } = this.props
-    console.log()
+    const { post: { loading }, update, postToUpdate } = this.props
+
     return (
       <section className='form-container'>
         <h1 className='headline'>
@@ -84,7 +86,12 @@ class NewPost extends Component {
             return null
           })}
           {loading && <Loader />}
-          {message && <p> {message} </p>}
+          <ToastContainer
+            position='bottom-right'
+            autoClose={2500}
+            hideProgressBar={false}
+            pauseOnVisibilityChange
+          />
           <SubmitForm theme='button--secondary' text='Publish' />
         </form>
       </section>

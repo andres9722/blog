@@ -9,6 +9,7 @@ import {
   UPDATE_POST_SUCCESS,
   UPDATE_POST_FAIL
 } from '../actions'
+import { toast } from 'react-toastify'
 
 export const post = (state = {}, action) => {
   switch (action.type) {
@@ -17,16 +18,16 @@ export const post = (state = {}, action) => {
     case UPDATE_POST_REQUEST:
       return {
         ...state,
-        loading: true,
-        message: 'the publication was updated correctly'
+        loading: true
       }
     case CREATE_POST_SUCCESS:
+      toast('the publication was created correctly')
       return {
         ...state,
-        loading: false,
-        message: 'the post was created correctly'
+        loading: false
       }
     case UPDATE_POST_SUCCESS:
+      toast('the publication was updated correctly')
       return { ...state, loading: false }
     case CREATE_POST_FAIL:
       return {
