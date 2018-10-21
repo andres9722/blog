@@ -4,7 +4,7 @@ import './Button.scss'
 
 const Button = props => (
   <button
-    className={'button ' + props.className}
+    className={'button ' + props.theme}
     onClick={props.onClick}
     id={props.id}
     type='button'

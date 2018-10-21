@@ -1,16 +1,55 @@
 @import "../../Shared/variables.scss";
+@import "../../Shared/mixins.scss";
 
 .posts-item {
-  margin: 16px 0;
-  padding: 16px 0;
+  padding: 8px 0;
+  list-style: none;
+  text-align: left;
+  margin-bottom: 24px;
+  border-bottom: 1px solid color(border-color);
+  position: relative;
+
+  &--large {
+    padding-top: 64px;
+  }
+
+  &--edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 70px;
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  @include from($medium) {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 16px;
+  }
 
   &__profile {
     display: flex;
     margin-bottom: 16px;
   }
+
+  &__text {
+    overflow-x: hidden;
+    margin-top: 16px;
+    border: 1px solid color(border-color);
+    border-radius: 3px;
+    padding: 32px;
+  }
   
   &__author {
     color: color(primary);
+    display: block;
+    text-align: center;
 
     &:hover {
       text-decoration: underline;
@@ -18,26 +57,32 @@
   }
   
   &__avatar {
-    width: 30px;
-    height: 30px;
+    width: 90px;
+    height: 90px;
     border-radius: 3px;
-    margin-right: 8px;
+    margin: 0 auto;
   }
 
   &__content {
-    border-radius: 3px;
-    padding: 8px;
-    border: 1px solid color(border-color);
-    cursor: pointer;
+    border-bottom: 1px solid color(border-color);
     transition: border-color .2s ease;
-
-    &:hover {
-      border: 1px solid darken(color(border-color), 15);
-    }
   }
   
   &__description {
     color: color(font-color);
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 8px;
+  }
+
+  &__post {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    margin-left: auto;
+    font-size: 16px;
   }
 
 }

@@ -11,25 +11,35 @@ import {
   GET_DATA_REQUEST,
   CREATE_POST_REQUEST,
   CREATE_POST_SUCCESS,
-  CREATE_POST_FAIL
+  CREATE_POST_FAIL,
+  SHOW_MODAL,
+  UPDATE_POST_REQUEST,
+  UPDATE_POST_SUCCESS,
+  UPDATE_POST_FAIL
 } from './actions'
-
 import API from '../api/api'
 import { requestAuth, requestToken, requestUser } from '../api/auth'
 
-export const getData = () => {
+export const getData = username => {
   return async dispatch => {
     dispatch({ type: GET_DATA_REQUEST })
 
+    if (username === '') {
+      return dispatch({
+        type: GET_DATA_SUCCESS,
+        data: null
+      })
+    }
+
     try {
-      const { data } = await API.get('gists/public')
+      let { data } = await API.get(`users/${username.trim()}/gists`)
 
       return dispatch({
         type: GET_DATA_SUCCESS,
         data
       })
     } catch (error) {
-      dispatch({ type: GET_DATA_FAIL })
+      dispatch({ type: GET_DATA_FAIL, error: error.message })
     }
   }
 }
@@ -39,9 +49,9 @@ export const onRedirectAuth = () => {
     dispatch({ type: REDIRECT_REQUEST })
 
     try {
-      let response = await requestAuth()
+      let { request } = await requestAuth()
 
-      let URL = response.request.responseURL
+      let URL = request.responseURL
 
       window.location = URL
 
@@ -65,8 +75,6 @@ export const getToken = code => {
         .replace('access_token=', '')
         .replace('&scope=gist%2Cuser&token_type=bearer', '')
 
-      console.log(token, 'tokeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeen')
-
       let user = await requestUser(token)
 
       let payload = {
@@ -86,14 +94,12 @@ export const getToken = code => {
 
 export const onLogout = () => ({ type: LOGOUT })
 
-export const createPost = (post, token, user) => {
-  console.log(post, token, user.login)
+export const createPost = (post, token) => {
   return async dispatch => {
     dispatch({ type: CREATE_POST_REQUEST })
 
     try {
-      let { data } = await API.post(post, token)
-      console.log(data, 'jeieiekak')
+      await API.post(post, token)
 
       return dispatch({
         type: CREATE_POST_SUCCESS
@@ -103,3 +109,21 @@ export const createPost = (post, token, user) => {
     }
   }
 }
+
+export const updatePost = (id, post, token) => {
+  return async dispatch => {
+    dispatch({ type: UPDATE_POST_REQUEST })
+
+    try {
+      await API.update(id, post, token)
+
+      return dispatch({
+        type: UPDATE_POST_SUCCESS
+      })
+    } catch (error) {
+      dispatch({ type: UPDATE_POST_FAIL })
+    }
+  }
+}
+
+export const showModal = () => ({ type: SHOW_MODAL })

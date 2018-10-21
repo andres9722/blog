@@ -4,28 +4,33 @@
   width: 100%;
   background: color(primary);
   color: color(white);
-  height: 55px;
+  height: 80px;
+  padding: 0 16px;
   
   &-container {
     height: inherit;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    &__main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    width: 100%;
+  }
 
-    }
+  &__link {
+    color: color(white);
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
 
-    &__logo {
-      margin-right: 16px;
-    }
+  &__profile {
+    display: flex;
+    align-items: center;
+  }
 
-    &__link {
-      color: color(white);
-      margin: 0 16px;
-    }
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 0 16px;
   }
 }

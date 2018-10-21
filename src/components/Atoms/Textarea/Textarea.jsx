@@ -6,6 +6,8 @@ const Textarea = props => (
   <div className={props.classes}>
     <label className=''>{props.label}</label>
     <textarea
+      cols='30'
+      rows='15'
       value={props.value}
       id={props.id}
       className={'input ' + props.theme}
@@ -15,7 +17,6 @@ const Textarea = props => (
       placeholder={props.placeholder}
       required={props.required}
       defaultValue={props.default}
-      autoComplete={props.autoComplete}
       disabled={props.disabled}
       ref={props.ref}
     />

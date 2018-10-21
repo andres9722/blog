@@ -1,25 +1,16 @@
 {
   "entityTitle": "NEW POST",
+  "updateEntityTitle": "UPDATE POST",
   "entityFields": [
     {
       "kind": "input",
-      "label": "Title: ",
-      "type": "text",
-      "name": "filename",
-      "id": "filename",
-      "placeholder": "Post title..."
-    },
-    {
-      "kind": "input",
-      "label": "Description: ",
       "type": "text",
       "name": "description",
       "id": "description",
-      "placeholder": "Description..."
+      "placeholder": "Title..."
     },
     {
       "kind": "textarea",
-      "label": "Text: ",
       "type": "text",
       "name": "content",
       "id": "content",

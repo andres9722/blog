@@ -5,14 +5,20 @@ import Loader from '../../Atoms/Loader/Loader'
 import SubmitForm from '../../Atoms/Input/SubmitForm'
 import Textarea from '../../Atoms/Textarea/Textarea'
 import info from '../../../data/createPost.json'
-import { createPost } from '../../../state/actionCreators'
+import { createPost, updatePost } from '../../../state/actionCreators'
+import './NewPost.scss'
 
 class NewPost extends Component {
   handleOnSubmit = e => {
     e.preventDefault()
-    const { handleOnCreatePost, auth: { token, user } } = this.props
+    const {
+      handleOnCreatePost,
+      handleOnUpdatePost,
+      auth: { token, user },
+      update,
+      postToUpdate
+    } = this.props
     const form = e.target
-    const filename = form.filename.value
     const description = form.description.value
     const content = form.content.value
 
@@ -20,47 +26,57 @@ class NewPost extends Component {
       description,
       public: true,
       files: {
-        'filename.md': {
+        'post.md': {
           content
         }
       }
     }
 
-    handleOnCreatePost(post, token, user)
+    if (update) {
+      handleOnUpdatePost(postToUpdate.id, post, token)
+    } else {
+      handleOnCreatePost(post, token, user)
+    }
   }
 
   render () {
-    const { entityTitle, entityFields } = info
-    const { post: { loading } } = this.props
+    const { entityTitle, updateEntityTitle, entityFields } = info
+    const { post: { loading, message }, update, postToUpdate } = this.props
+    console.log()
     return (
       <section className='form-container'>
-        <h1 className='headline'>{entityTitle}</h1>
-        <form className='general-form' onSubmit={this.handleOnSubmit}>
+        <h1 className='headline'>
+          {!update ? entityTitle : updateEntityTitle}
+        </h1>
+        <form className='form' onSubmit={this.handleOnSubmit}>
           {entityFields.map(field => {
             if (field.kind === 'input') {
               return (
                 <InputForm
-                  label={field.label}
                   type={field.type}
                   name={field.name}
                   id={field.id}
                   placeholder={field.placeholder}
                   key={field.id}
                   required
+                  default={postToUpdate && postToUpdate[field.name]}
                 />
               )
             }
             if (field.kind === 'textarea') {
               return (
                 <Textarea
-                  label={field.label}
                   name={field.name}
                   id={field.id}
                   placeholder={field.placeholder}
                   key={field.id}
                   required
-                  cols='30'
-                  rows='10'
+                  default={
+                    postToUpdate &&
+                      postToUpdate.files &&
+                      postToUpdate.files['post.md'] &&
+                      postToUpdate.files['post.md'].content
+                  }
                 />
               )
             }
@@ -68,6 +84,7 @@ class NewPost extends Component {
             return null
           })}
           {loading && <Loader />}
+          {message && <p> {message} </p>}
           <SubmitForm theme='button--secondary' text='Publish' />
         </form>
       </section>
@@ -78,6 +95,9 @@ class NewPost extends Component {
 const mapDispatchToProps = dispatch => ({
   handleOnCreatePost (post, token, user) {
     dispatch(createPost(post, token, user))
+  },
+  handleOnUpdatePost (id, post, token) {
+    dispatch(updatePost(id, post, token))
   }
 })
 

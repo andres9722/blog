@@ -5,7 +5,7 @@ import NewPost from '../Organisms/NewPost/NewPost'
 
 const Blog = ({ posts }) => {
   return (
-    <div className='l-container'>
+    <div className='l-container container container--auth'>
       <NewPost />
       <Posts posts={posts} />
     </div>

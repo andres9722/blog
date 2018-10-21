@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Error404 = () => (
-  <div>
+  <div className='l-container container'>
     Error 404
   </div>
 )

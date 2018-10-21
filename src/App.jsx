@@ -3,15 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Routes from './components/Utils/Routes'
 import Header from './components/Molecules/Header/Header'
-import { getData } from './state/actionCreators'
 import './App.scss'
 
 class App extends Component {
-  componentDidMount () {
-    const { getData } = this.props
-    getData()
-  }
-
   render () {
     const { auth: { loggedIn } } = this.props
     return (
@@ -25,12 +19,6 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getData () {
-    dispatch(getData())
-  }
-})
-
 const mapStateToProps = ({ auth }) => ({ auth })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

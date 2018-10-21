@@ -1,22 +1,42 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Loader from '../../Atoms/Loader/Loader'
-import InputForm from '../../Atoms/Input/Input'
 import Post from '../../Organisms/Post/Post'
 import './Posts.scss'
+import FormSearch from '../../Molecules/FormSearch/FormSearch'
 
-const Posts = ({ posts: { posts, loading } }) => {
+const Posts = ({ posts: { posts, loading, error } }) => {
   return (
-    <Fragment>
-      {loading && <Loader />}
-      <InputForm placeholder='Search...' />
-      <ul>
+    <div>
+      <FormSearch posts={!!posts} />
+      {posts &&
+        posts[0] &&
+        <div className='user-info'>
+          <img
+            className='posts-item__avatar'
+            src={posts[0].owner.avatar_url && posts[0].owner.avatar_url}
+            alt='avatar url'
+          />
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href={posts[0].owner.html_url}
+            className='posts-item__author'
+          >
+            {posts[0].owner.login}
+          </a>
+        </div>}
+      <ul className={posts ? 'posts posts--show' : 'posts'}>
+        <h5>POSTS</h5>
         {posts &&
           posts.map(
             post => post.description && <Post key={post.id} post={post} />
           )}
       </ul>
-    </Fragment>
+      {loading && <div className='loader'><Loader /></div>}
+      {posts && !posts.length && 'Not post'}
+      {error && <p>{error}</p>}
+    </div>
   )
 }
 

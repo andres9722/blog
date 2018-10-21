@@ -1,0 +1,12 @@
+@import "../../Shared/variables.scss";
+
+.form-search {
+  width: 100%;
+  height: 150px;
+  transition: transform .5s, top .3s ease;
+  text-align: center;
+
+  input {
+    width: 80%;
+  }
+}

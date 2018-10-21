@@ -1,0 +1,13 @@
+@import "../../Shared/variables.scss";
+@import "../../Shared/mixins.scss";
+
+.form-container {
+  @include from ($medium) {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  input, textarea {
+    margin-bottom: 16px;
+  }
+}

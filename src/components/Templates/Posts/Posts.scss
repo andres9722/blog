@@ -1,5 +1,17 @@
 @import "../../Shared/variables.scss";
 
+
+.user-info {
+  margin-top: 32px;
+}
+
 .posts {
+  width: 100%;
   
+  &--show {
+    transform: scaleY(100%);
+  }
+
+  &-item {
+  }
 }

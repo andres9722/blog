@@ -4,10 +4,10 @@
 .input {
   font-family: $font-text;
   border-radius: 3px;
-  padding: 8px;
+  padding: 12px 8px;
   outline: none;
   border: 1px solid color(border-color);
-  width: 175px;
+  width: 100%;
 
   &[type="submit"] {
     cursor: pointer;

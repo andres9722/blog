@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 import Button from '../../Atoms/Button/Button'
 import { Link } from 'react-router-dom'
 import './Header.scss'
-import { onRedirectAuth, onLogout } from '../../../state/actionCreators'
+import {
+  onRedirectAuth,
+  onLogout,
+  getData
+} from '../../../state/actionCreators'
 
 const Header = ({
   handleOnRedirect,
@@ -12,22 +16,16 @@ const Header = ({
 }) => (
   <header className='header'>
     <div className='header-container l-container'>
-      <div className='header-container__main'>
-        <h1 className='header-container__logo'>BLOG</h1>
-        <Link className='header-container__link' to={loggedIn ? '/posts' : '/'}>
-          All posts
-        </Link>
-      </div>
+      <Link className='header__link' to={loggedIn ? '/posts' : '/'}>
+        BLOG
+      </Link>
       {!loggedIn &&
         <Button text='Sign in' onClick={() => handleOnRedirect()} />}
       {loggedIn &&
         user &&
-        <div style={{ display: 'flex' }}>
-          <img
-            style={{ width: '40px', marginRight: '20px' }}
-            src={user.avatar_url}
-            alt=''
-          />
+        <div className='header__profile'>
+          <span>{user.login}</span>
+          <img className='header__avatar' src={user.avatar_url} alt='' />
           <Button text='Logout' onClick={() => handleOnLogout()} />
         </div>}
     </div>
@@ -42,6 +40,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleOnLogout () {
     dispatch(onLogout())
+  },
+  handleOnSearch (username) {
+    dispatch(getData(username))
   }
 })
 

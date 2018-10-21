@@ -18,4 +18,16 @@ export default class API {
       }
     })
   }
+
+  static update (id, post, token) {
+    return axios({
+      method: 'PATCH',
+      url: `https://api.github.com/gists/${id}`,
+      data: post,
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `token ${token}`
+      }
+    })
+  }
 }

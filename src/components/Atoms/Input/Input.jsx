@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './Input.scss'
 
 const InputForm = props => (
-  <div className={props.classes}>
-    <label className=''>{props.label}</label>
+  <Fragment>
     <input
+      onChange={props.onChange}
       value={props.value}
       id={props.id}
       className={'input ' + props.theme}
@@ -19,7 +19,7 @@ const InputForm = props => (
       disabled={props.disabled}
       ref={props.ref}
     />
-  </div>
+  </Fragment>
 )
 
 InputForm.propTypes = {
