@@ -2,7 +2,7 @@
   "name": "gist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://andres9722.github.io/blog",
+  "homepage": "http://andres9722.github.io/blog/",
   "dependencies": {
     "axios": "^0.18.0",
     "codecov.io": "^0.1.6",
