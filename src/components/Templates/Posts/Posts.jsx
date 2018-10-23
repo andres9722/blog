@@ -5,7 +5,7 @@ import Post from '../../Organisms/Post/Post'
 import './Posts.scss'
 import FormSearch from '../../Molecules/FormSearch/FormSearch'
 
-const Posts = ({ posts: { posts, loading, error } }) => {
+export const Posts = ({ posts: { posts, loading, error } }) => {
   return (
     <div>
       <FormSearch posts={!!posts} />
@@ -34,7 +34,7 @@ const Posts = ({ posts: { posts, loading, error } }) => {
           )}
       </ul>
       {loading && <div className='loader'><Loader /></div>}
-      {posts && !posts.length && 'Not post'}
+      {posts && !posts.length && <p>'Not post'</p>}
       {error && <p>{error}</p>}
     </div>
   )
