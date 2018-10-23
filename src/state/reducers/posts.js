@@ -51,7 +51,7 @@ export const posts = (state = {}, action) => {
     case GET_DATA_REQUEST:
       return { ...state, loading: true, error: null }
     case GET_DATA_SUCCESS:
-      return { ...state, loading: false, posts: action.data, error: null }
+      return { ...state, loading: false, posts: action.data }
     case GET_DATA_FAIL:
       return {
         ...state,
