@@ -20,6 +20,10 @@ import {
 import API from '../api/api'
 import { requestAuth, requestToken, requestUser } from '../api/auth'
 
+export const showModal = () => ({ type: SHOW_MODAL })
+
+export const onLogout = () => ({ type: LOGOUT })
+
 export const getData = username => {
   return async dispatch => {
     dispatch({ type: GET_DATA_REQUEST })
@@ -92,8 +96,6 @@ export const getToken = code => {
   }
 }
 
-export const onLogout = () => ({ type: LOGOUT })
-
 export const createPost = (post, token) => {
   return async dispatch => {
     dispatch({ type: CREATE_POST_REQUEST })
@@ -125,5 +127,3 @@ export const updatePost = (id, post, token) => {
     }
   }
 }
-
-export const showModal = () => ({ type: SHOW_MODAL })
