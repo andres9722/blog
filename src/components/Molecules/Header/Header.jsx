@@ -14,18 +14,19 @@ import {
  * This component will be displayed on all pages of the application, it is useful to navigate to the main page and to authenticate the user.
  */
 
-const Header = ({
-  handleOnRedirect,
-  handleOnLogout,
-  auth: { loggedIn, user }
-}) => (
+const Header = ({ handleOnLogout, auth: { loggedIn, user } }) => (
   <header className='header'>
     <div className='header-container l-container'>
       <Link className='header__link' to={loggedIn ? '/posts/' : '/blog/'}>
         BLOG
       </Link>
       {!loggedIn &&
-        <Button text='Sign in' onClick={() => handleOnRedirect()} />}
+        <a
+          style={{ color: 'white' }}
+          href='https://github.com/login/oauth/authorize?client_id=a9b9a9cdd993b995f360&scope=gist,user'
+        >
+          Sign in
+        </a>}
       {loggedIn &&
         user &&
         <div className='header__profile'>
@@ -38,7 +39,6 @@ const Header = ({
 )
 
 Header.propTypes = {
-  handleOnRedirect: PropTypes.func.isRequired,
   handleOnLogout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 }
@@ -46,9 +46,6 @@ Header.propTypes = {
 const mapStateToProps = ({ auth }) => ({ auth })
 
 const mapDispatchToProps = dispatch => ({
-  handleOnRedirect () {
-    dispatch(onRedirectAuth())
-  },
   handleOnLogout () {
     dispatch(onLogout())
   },

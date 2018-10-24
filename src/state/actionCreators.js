@@ -1,9 +1,6 @@
 import {
   GET_DATA_SUCCESS,
   GET_DATA_FAIL,
-  REDIRECT_REQUEST,
-  REDIRECT_SUCCESS,
-  REDIRECT_FAIL,
   TOKEN_REQUEST,
   TOKEN_SUCCESS,
   TOKEN_FAIL,
@@ -48,36 +45,14 @@ export const getData = username => {
   }
 }
 
-export const onRedirectAuth = () => {
-  return async dispatch => {
-    dispatch({ type: REDIRECT_REQUEST })
-
-    try {
-      let { request } = await AUTH.requestAuth()
-
-      let URL = request.responseURL
-
-      window.location = URL
-
-      return dispatch({
-        type: REDIRECT_SUCCESS
-      })
-    } catch (error) {
-      dispatch({ type: REDIRECT_FAIL })
-    }
-  }
-}
-
 export const getToken = code => {
   return async dispatch => {
     dispatch({ type: TOKEN_REQUEST })
 
     try {
-      let response = await AUTH.requestToken(code)
+      let { data } = await AUTH.requestToken(code)
 
-      let token = await response.data
-        .replace('access_token=', '')
-        .replace('&scope=gist%2Cuser&token_type=bearer', '')
+      let token = await data.token
 
       let user = await AUTH.requestUser(token)
 
