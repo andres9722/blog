@@ -6,4 +6,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - To run the project run `npm install && npm start`
 - To run the test run `npm test`
 
-[https://andres9722.github.io/blog/]https://andres9722.github.io/blog/
+https://andres9722.github.io/blog/
