@@ -59,6 +59,11 @@ This is an react component that that represents an input of type submit for the 
 
 
 
+Property | Type | Required | Default value | Description
+:--- | :--- | :--- | :--- | :---
+theme|string|no||
+text|string|yes||
+disabled|bool|no||
 -----
 **src\components\Atoms\Loader\Loader.jsx**
 

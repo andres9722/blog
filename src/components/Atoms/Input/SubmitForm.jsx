@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * This is an react component that that represents an input of type submit for the forms.
@@ -14,5 +15,11 @@ const SubmitForm = props => (
     />
   </div>
 )
+
+SubmitForm.propTypes = {
+  theme: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
+}
 
 export default SubmitForm
