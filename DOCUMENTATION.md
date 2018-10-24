@@ -249,3 +249,27 @@ Property | Type | Required | Default value | Description
 :--- | :--- | :--- | :--- | :---
 authed|bool|yes||
 -----
+
+-----
+**src\state\actionCreators.js**
+
+### 1. showModal
+This action allows changing the value of the state to show or hide the modal component -  ({ type: SHOW_MODAL })
+
+### 2. onLogout
+This action allows the user to exit the application - ({ type: LOGOUT })
+
+### 3. getData
+This action what it does is get the posts of a certain user, calling an external API of Github - ({ type: GET_DATA_SUCCESS, data })
+
+### 4. onRedirectAuth
+This action gets the URL where the user must be redirected to complete their authentication process - ({ type: REDIRECT_SUCCESS })
+
+### 5. getToken
+This action gets the token and the user, to notify the application that there is already a user logged in - ({ type: TOKEN_SUCCESS, payload })
+
+### 6. createPost
+This action is responsible for sending the data of a new post to the server - ({ type: CREATE_POST_SUCCESS })
+
+### 7. updatePost
+This action is responsible for sending the data of a new publication to the server so that the record is updated - ({ type: UPDATE_POST_SUCCESS })
