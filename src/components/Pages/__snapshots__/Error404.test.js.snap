@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Eror 404 render correctly Error 404 page 1`] = `
+<Error404>
+  <div
+    className="l-container container"
+  >
+    Error 404
+  </div>
+</Error404>
+`;

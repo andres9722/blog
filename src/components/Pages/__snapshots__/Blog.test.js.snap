@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Blog render correctly Blog component 1`] = `
+<div
+  className="l-container container container--auth"
+>
+  <Connect(NewPost) />
+  <Connect(Posts) />
+</div>
+`;

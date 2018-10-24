@@ -13,7 +13,10 @@ const Post = ({ post, large, auth, ui: { showModal }, handleOnShowModal }) => {
   return (
     <Fragment>
       {post &&
-        <li className={large ? 'posts-item posts-item--large' : 'posts-item'}>
+        <li
+          id='posts-item'
+          className={large ? 'posts-item posts-item--large' : 'posts-item'}
+        >
           <h6>
             {new Date(post.updated_at).toDateString().slice(4)}
             {' '}
