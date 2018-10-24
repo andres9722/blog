@@ -18,7 +18,7 @@ import {
   UPDATE_POST_FAIL
 } from './actions'
 import API from '../api/api'
-import { requestAuth, requestToken, requestUser } from '../api/auth'
+import AUTH from '../api/auth'
 
 export const showModal = () => ({ type: SHOW_MODAL })
 
@@ -53,7 +53,7 @@ export const onRedirectAuth = () => {
     dispatch({ type: REDIRECT_REQUEST })
 
     try {
-      let { request } = await requestAuth()
+      let { request } = await AUTH.requestAuth()
 
       let URL = request.responseURL
 
@@ -73,13 +73,13 @@ export const getToken = code => {
     dispatch({ type: TOKEN_REQUEST })
 
     try {
-      let response = await requestToken(code)
+      let response = await AUTH.requestToken(code)
 
       let token = await response.data
         .replace('access_token=', '')
         .replace('&scope=gist%2Cuser&token_type=bearer', '')
 
-      let user = await requestUser(token)
+      let user = await AUTH.requestUser(token)
 
       let payload = {
         token,

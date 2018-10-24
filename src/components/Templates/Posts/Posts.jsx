@@ -38,8 +38,10 @@ export const Posts = ({ posts: { posts, loading, error } }) => {
           )}
       </ul>
       {loading && <div className='loader'><Loader /></div>}
-      {posts && !posts.length && <p>'Not post'</p>}
-      {error && <p>{error}</p>}
+      {posts &&
+        !posts.length &&
+        <p className='posts__error'>This user has not made any publication</p>}
+      {error && <p className='posts__error'>{error}</p>}
     </div>
   )
 }

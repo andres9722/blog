@@ -24,8 +24,10 @@ export const post = (state = {}, action) => {
       toast('the publication was updated correctly')
       return { ...state, loading: false }
     case CREATE_POST_FAIL:
+      toast.error(action.error)
       return { ...state, loading: false, error: action.error }
     case UPDATE_POST_FAIL:
+      toast.error(action.error)
       return { ...state, loading: false, error: action.error }
     default:
       return state

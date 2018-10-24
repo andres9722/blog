@@ -12,6 +12,9 @@
     transform: scaleY(100%);
   }
 
-  &-item {
+  &__error {
+    padding: 16px;
+    color: color(red);
+    margin-top: 16px;
   }
 }

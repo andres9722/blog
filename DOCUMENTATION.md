@@ -248,7 +248,6 @@ In this component the different routes that the application has are defined.
 Property | Type | Required | Default value | Description
 :--- | :--- | :--- | :--- | :---
 authed|bool|yes||
------
 
 -----
 **src\state\actionCreators.js**
