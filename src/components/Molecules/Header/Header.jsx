@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Button from '../../Atoms/Button/Button'
 import { Link } from 'react-router-dom'
 import './Header.scss'
@@ -35,6 +36,12 @@ const Header = ({
     </div>
   </header>
 )
+
+Header.propTypes = {
+  handleOnRedirect: PropTypes.func.isRequired,
+  handleOnLogout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
 
 const mapStateToProps = ({ auth }) => ({ auth })
 

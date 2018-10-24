@@ -37,7 +37,8 @@ InputForm.propTypes = {
   required: PropTypes.bool,
   defaultValue: PropTypes.string,
   autoComplete: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  theme: PropTypes.string
 }
 
 export default InputForm

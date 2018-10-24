@@ -31,14 +31,15 @@ Textarea.propTypes = {
   classes: PropTypes.string,
   label: PropTypes.string,
   minLength: PropTypes.number,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   type: PropTypes.string,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   defaultValue: PropTypes.string,
   autoComplete: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  theme: PropTypes.string
 }
 
 export default Textarea

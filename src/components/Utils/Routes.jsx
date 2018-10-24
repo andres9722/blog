@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Error404 from '../Pages/Error404'
 import Blog from '../Pages/Blog'
@@ -38,6 +39,10 @@ const Routes = ({ authed }) => {
       </Switch>
     </Fragment>
   )
+}
+
+Routes.propTypes = {
+  authed: PropTypes.bool.isRequired
 }
 
 export default Routes

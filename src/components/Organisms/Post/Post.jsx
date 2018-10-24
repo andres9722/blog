@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import TimeAgo from 'react-timeago'
 import { Link } from 'react-router-dom'
 import Markdown from 'react-markdown'
@@ -59,6 +60,14 @@ const Post = ({ post, large, auth, ui: { showModal }, handleOnShowModal }) => {
         </li>}
     </Fragment>
   )
+}
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+  large: PropTypes.bool,
+  auth: PropTypes.object.isRequired,
+  ui: PropTypes.object,
+  handleOnShowModal: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({ auth, ui }) => ({ auth, ui })

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Modal.scss'
 
 /**
@@ -17,6 +18,12 @@ const Modal = ({ show, closeModal, children }) => {
       </div>
     </div>
   )
+}
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired
 }
 
 export default Modal

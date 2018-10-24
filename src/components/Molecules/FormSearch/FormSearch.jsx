@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import InputForm from '../../Atoms/Input/Input'
 import { getData } from '../../../state/actionCreators'
 import './FormSearch.scss'
@@ -31,6 +32,10 @@ const FormSearch = ({ handleOnSearch }) => {
       </form>
     </section>
   )
+}
+
+FormSearch.propTypes = {
+  handleOnSearch: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({

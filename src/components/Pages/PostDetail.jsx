@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Post from '../Organisms/Post/Post'
@@ -64,6 +65,11 @@ class PostDetail extends Component {
       </div>
     )
   }
+}
+
+PostDetail.propTypes = {
+  match: PropTypes.object.isRequired,
+  posts: PropTypes.object
 }
 
 const mapStateToProps = ({ posts }) => ({ posts })

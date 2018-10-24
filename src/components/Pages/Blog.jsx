@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Posts from '../Templates/Posts/Posts'
 import NewPost from '../Organisms/NewPost/NewPost'
@@ -14,6 +15,10 @@ const Blog = ({ posts }) => {
       <Posts posts={posts} />
     </div>
   )
+}
+
+Blog.propTypes = {
+  posts: PropTypes.array
 }
 
 const mapStateToProps = ({ auth }) => ({ auth })

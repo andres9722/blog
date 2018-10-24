@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -101,6 +102,14 @@ class NewPost extends Component {
       </section>
     )
   }
+}
+
+NewPost.propTypes = {
+  handleOnCreatePost: PropTypes.func,
+  handleOnUpdatePost: PropTypes.func,
+  auth: PropTypes.object.isRequired,
+  update: PropTypes.bool,
+  postToUpdate: PropTypes.object
 }
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getToken } from '../../state/actionCreators'
 import Posts from '../Templates/Posts/Posts'
@@ -24,6 +25,10 @@ class Home extends Component {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  getToken: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({

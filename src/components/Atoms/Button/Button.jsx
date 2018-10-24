@@ -10,7 +10,6 @@ const Button = props => (
   <button
     className={'button ' + props.theme}
     onClick={props.onClick}
-    id={props.id}
     type='button'
   >
     {props.text}
@@ -18,8 +17,9 @@ const Button = props => (
 )
 
 Button.propTypes = {
-  text: PropTypes.string,
-  onClick: PropTypes.func
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  theme: PropTypes.string
 }
 
 export default Button
