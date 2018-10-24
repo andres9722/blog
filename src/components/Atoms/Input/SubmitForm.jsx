@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SubmitForm = props => (
-  <div className={props.classes}>
+  <div>
     <input
       type='submit'
       className={'button ' + props.theme}

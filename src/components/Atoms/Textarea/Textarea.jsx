@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Textarea.scss'
 
 const Textarea = props => (
-  <div className={props.classes}>
+  <div>
     <label className=''>{props.label}</label>
     <textarea
       cols='30'

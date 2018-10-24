@@ -1,5 +1,5 @@
 import React from 'react'
-import { configure, render, shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import Post from './Post'
 import configureStore from 'redux-mock-store'
 import Adapter from 'enzyme-adapter-react-16'

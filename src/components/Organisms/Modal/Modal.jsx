@@ -3,7 +3,7 @@ import './Modal.scss'
 
 const Modal = ({ show, closeModal, children }) => {
   return (
-    <div className={show ? 'modal modal--show' : 'modal'}>
+    <div id='modal' className={show ? 'modal--show modal' : 'modal'}>
       <div className='modal__content'>
         <span className='modal__close' onClick={closeModal}>
           <span className='icon-close icon' />

@@ -6,7 +6,7 @@ import InputForm from '../../Atoms/Input/Input'
 import Loader from '../../Atoms/Loader/Loader'
 import SubmitForm from '../../Atoms/Input/SubmitForm'
 import Textarea from '../../Atoms/Textarea/Textarea'
-import info from '../../../data/createPost.json'
+import structure from '../../../data/createPost.json'
 import { createPost, updatePost } from '../../../state/actionCreators'
 import './NewPost.scss'
 
@@ -42,7 +42,7 @@ class NewPost extends Component {
   }
 
   render () {
-    const { entityTitle, updateEntityTitle, entityFields } = info
+    const { entityTitle, updateEntityTitle, entityFields } = structure
     const { post: { loading }, update, postToUpdate } = this.props
 
     return (
