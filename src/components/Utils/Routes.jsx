@@ -12,7 +12,9 @@ const PrivateRoute = ({ component: Component, authed, rest }) => (
     render={props =>
       (authed === true
         ? <Component {...props} />
-        : <Redirect to={{ pathname: '/', state: { from: props.location } }} />)}
+        : <Redirect
+          to={{ pathname: '/blog/', state: { from: props.location } }}
+          />)}
   />
 )
 
@@ -32,7 +34,7 @@ const Routes = ({ authed }) => {
   return (
     <Fragment>
       <Switch>
-        <PublicRoute path='/' authed={authed} exact component={Home} />
+        <PublicRoute path='/blog/' authed={authed} exact component={Home} />
         <PrivateRoute path='/posts/' authed={authed} exact component={Blog} />
         <Route path='/post/:id' authed={authed} exact component={PostDetail} />
         <Route component={Error404} />
