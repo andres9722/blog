@@ -123,7 +123,6 @@ This component will be displayed on all pages of the application, it is useful t
 
 Property | Type | Required | Default value | Description
 :--- | :--- | :--- | :--- | :---
-handleOnRedirect|func|yes||
 handleOnLogout|func|yes||
 auth|object|yes||
 -----
