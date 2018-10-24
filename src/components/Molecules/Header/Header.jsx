@@ -16,7 +16,7 @@ const Header = ({
 }) => (
   <header className='header'>
     <div className='header-container l-container'>
-      <Link className='header__link' to={loggedIn ? '/posts/' : '/blog/'}>
+      <Link className='header__link' to={loggedIn ? '/posts/' : '/'}>
         BLOG
       </Link>
       {!loggedIn &&

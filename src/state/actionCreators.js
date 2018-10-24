@@ -107,7 +107,7 @@ export const createPost = (post, token) => {
         type: CREATE_POST_SUCCESS
       })
     } catch (error) {
-      dispatch({ type: CREATE_POST_FAIL })
+      dispatch({ type: CREATE_POST_FAIL, error: error.message })
     }
   }
 }
@@ -123,7 +123,7 @@ export const updatePost = (id, post, token) => {
         type: UPDATE_POST_SUCCESS
       })
     } catch (error) {
-      dispatch({ type: UPDATE_POST_FAIL })
+      dispatch({ type: UPDATE_POST_FAIL, error: error.message })
     }
   }
 }

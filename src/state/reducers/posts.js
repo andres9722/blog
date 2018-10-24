@@ -16,31 +16,17 @@ export const post = (state = {}, action) => {
     case CREATE_POST_REQUEST:
       return { ...state, loading: true }
     case UPDATE_POST_REQUEST:
-      return {
-        ...state,
-        loading: true
-      }
+      return { ...state, loading: true }
     case CREATE_POST_SUCCESS:
       toast('the publication was created correctly')
-      return {
-        ...state,
-        loading: false
-      }
+      return { ...state, loading: false }
     case UPDATE_POST_SUCCESS:
       toast('the publication was updated correctly')
       return { ...state, loading: false }
     case CREATE_POST_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: 'Error while create post'
-      }
+      return { ...state, loading: false, error: action.error }
     case UPDATE_POST_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: 'Error while create post'
-      }
+      return { ...state, loading: false, error: action.error }
     default:
       return state
   }
