@@ -61,6 +61,8 @@ export const getToken = code => {
         user
       }
 
+      getData(user.login)
+
       return dispatch({
         type: TOKEN_SUCCESS,
         payload
