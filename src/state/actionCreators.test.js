@@ -3,8 +3,7 @@ import {
   getData,
   showModal,
   createPost,
-  updatePost,
-  onRedirectAuth
+  updatePost
 } from './actionCreators'
 import configureStore from 'redux-mock-store'
 import moxios from 'moxios'
@@ -18,9 +17,7 @@ import {
   CREATE_POST_REQUEST,
   CREATE_POST_FAIL,
   UPDATE_POST_REQUEST,
-  UPDATE_POST_SUCCESS,
-  REDIRECT_REQUEST,
-  REDIRECT_SUCCESS
+  UPDATE_POST_SUCCESS
 } from './actions'
 
 const middlewares = [thunk]
@@ -240,28 +237,6 @@ describe('getPosts actions', () => {
     }
 
     return store.dispatch(updatePost('1515', post, '4s4s4s4')).then(() => {
-      const actions = store.getActions()
-      expect(actions.length).toBe(2)
-      expect(actions).toEqual(expectedActions)
-    })
-  })
-
-  it('creates redirect/REQUEST_SUCCESS after success redirect URL to auth', () => {
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent()
-      request.respondWith({
-        status: 200
-      })
-    })
-
-    const expectedActions = [
-      { type: REDIRECT_REQUEST },
-      { type: REDIRECT_SUCCESS }
-    ]
-
-    const store = mockStore()
-
-    return store.dispatch(onRedirectAuth()).then(() => {
       const actions = store.getActions()
       expect(actions.length).toBe(2)
       expect(actions).toEqual(expectedActions)
