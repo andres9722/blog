@@ -9,6 +9,10 @@ import Modal from '../../Organisms/Modal/Modal'
 import './Post.scss'
 import { showModal } from '../../../state/actionCreators'
 
+/**
+ * This component is responsible for creating and updating the posts.
+ */
+
 const Post = ({ post, large, auth, ui: { showModal }, handleOnShowModal }) => {
   return (
     <Fragment>

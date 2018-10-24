@@ -4,6 +4,10 @@ import InputForm from '../../Atoms/Input/Input'
 import { getData } from '../../../state/actionCreators'
 import './FormSearch.scss'
 
+/**
+ * This component is responsible for dispatching the value of an input with the name of a user to be searched in the github API.
+ */
+
 const FormSearch = ({ handleOnSearch }) => {
   return (
     <section className='form-container'>

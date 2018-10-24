@@ -10,6 +10,10 @@ import structure from '../../../data/createPost.json'
 import { createPost, updatePost } from '../../../state/actionCreators'
 import './NewPost.scss'
 
+/**
+ * This component is responsible for creating and updating the posts.
+ */
+
 class NewPost extends Component {
   handleOnSubmit = e => {
     e.preventDefault()

@@ -23,6 +23,10 @@ const PublicRoute = ({ component: Component, authed, rest }) => (
   />
 )
 
+/**
+ * In this component the different routes that the application has are defined.
+ */
+
 const Routes = ({ authed }) => {
   return (
     <Fragment>

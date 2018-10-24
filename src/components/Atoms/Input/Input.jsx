@@ -2,6 +2,10 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './Input.scss'
 
+/**
+ * This is an react component that that represents a personalized input for the forms, etc.
+ */
+
 const InputForm = props => (
   <Fragment>
     <input

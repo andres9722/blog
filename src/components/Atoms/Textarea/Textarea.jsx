@@ -2,6 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Textarea.scss'
 
+/**
+ * This is a react component that represents a text field for writing long paragraphs.
+ */
+
 const Textarea = props => (
   <div>
     <label className=''>{props.label}</label>

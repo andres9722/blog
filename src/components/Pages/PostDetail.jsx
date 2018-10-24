@@ -6,6 +6,10 @@ import Loader from '../Atoms/Loader/Loader'
 import API from '../../api/api'
 import arrow from '../../assets/right-arrow.svg'
 
+/**
+ * This component is responsible for displaying the full details of any publication, in addition to the possibility of browsing to subsequent publications associated with the same searched user.
+ */
+
 class PostDetail extends Component {
   state = {
     post: null,

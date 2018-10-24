@@ -9,6 +9,10 @@ import {
   getData
 } from '../../../state/actionCreators'
 
+/**
+ * This component will be displayed on all pages of the application, it is useful to navigate to the main page and to authenticate the user.
+ */
+
 const Header = ({
   handleOnRedirect,
   handleOnLogout,

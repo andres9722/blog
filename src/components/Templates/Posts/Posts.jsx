@@ -5,6 +5,10 @@ import Post from '../../Organisms/Post/Post'
 import './Posts.scss'
 import FormSearch from '../../Molecules/FormSearch/FormSearch'
 
+/**
+ * This component is responsible for displaying the list of summarized publications of a particular user.
+ */
+
 export const Posts = ({ posts: { posts, loading, error } }) => {
   return (
     <div>

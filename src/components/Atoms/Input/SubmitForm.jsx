@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * This is an react component that that represents an input of type submit for the forms.
+ */
+
 const SubmitForm = props => (
   <div>
     <input
