@@ -12,7 +12,7 @@ it('Renders no posts when store is empty', () => {
     post: {},
     ui: { showModal: false },
     large: false,
-    auth: true
+    auth: { loggedIn: true }
   })
 
   const wrapper = shallow(<Post store={store} />).dive()

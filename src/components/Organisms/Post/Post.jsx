@@ -63,9 +63,8 @@ const Post = ({ post, large, auth, ui: { showModal }, handleOnShowModal }) => {
 }
 
 Post.propTypes = {
-  post: PropTypes.object.isRequired,
+  post: PropTypes.object,
   large: PropTypes.bool,
-  auth: PropTypes.object.isRequired,
   ui: PropTypes.object,
   handleOnShowModal: PropTypes.func.isRequired
 }

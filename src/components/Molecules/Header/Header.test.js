@@ -15,7 +15,7 @@ describe('address of the routes depending on the authentication status', () => {
 
     const wrapper = shallow(<Header store={store} />).dive()
 
-    expect(wrapper.find('.header__link').prop('to')).toEqual('/')
+    expect(wrapper.find('.header__link').prop('to')).toEqual('/blog/')
   })
 
   it('authentication status = true', () => {
