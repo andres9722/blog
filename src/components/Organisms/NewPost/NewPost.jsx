@@ -43,6 +43,7 @@ class NewPost extends Component {
       handleOnUpdatePost(postToUpdate.id, post, token)
     } else {
       handleOnCreatePost(post, token, user)
+      form.reset()
     }
   }
 

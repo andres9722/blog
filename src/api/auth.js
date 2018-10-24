@@ -15,7 +15,6 @@ export default class AUTH {
   }
 
   static requestToken (code) {
-    console.log(code)
     return axios.get(`${TOKEN}/${code}`)
   }
 }

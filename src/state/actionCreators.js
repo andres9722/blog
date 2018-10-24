@@ -56,12 +56,14 @@ export const getToken = code => {
 
       let user = await AUTH.requestUser(token)
 
+      let username = await user.data.login
+
       let payload = {
         token,
         user
       }
 
-      getData(user.login)
+      dispatch(getData(username))
 
       return dispatch({
         type: TOKEN_SUCCESS,
